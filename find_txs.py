@@ -19,11 +19,13 @@ def open_json(file_path):
                     if txs_type == "receive":
                         if event["data"]["type"] == "receivedpayment" and event["data"]["receiver"] == address:
                             output = "File: {} Sender: {} Receiver: {} Time: {} Amount: {}".format(file_path, event["data"]["sender"],event["data"]["receiver"],event["timestamp_usecs"],event["data"]["amount"]["amount"])
+                            # output = "{}".format(event["data"]["amount"]["amount"])
                             txs.append(output)
                             print(output)
                     if txs_type == "send":
                         if event["data"]["type"] == "sentpayment" and event["data"]["sender"] == address:
                             output = "File: {} Sender: {} Receiver: {} Time: {} Amount: {}".format(file_path, event["data"]["sender"],event["data"]["receiver"],event["timestamp_usecs"],event["data"]["amount"]["amount"])
+                            # output = "{}".format(event["data"]["amount"]["amount"])
                             txs.append(output)
                             print(output)
 
